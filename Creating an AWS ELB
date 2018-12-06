@@ -1,0 +1,24 @@
+STEP BY STEP TO CREATE ELASTIC LOAB BALANCER
+1: Create EC2 instance using Windows Server and at the configure instance page, put the number of instance you want to create at the NUMBER OF INSTANCES PROMPT.
+2.At the Configure Security Group Page, add HTTP PORT and ANYWHERE for the source.
+3. Download the PAIR KEY and launch the instance.
+4. Connect to the instances.
+5. Open the Server Manager, click on MANAGE and click on ADD ROLES $ FEATURES.
+6. At the Server Role Stage, add IIS and add features
+7.AOnce the installation is completed, IIS will be added in the Server Manager
+8. Click on it, Right Click the Server Name, Click on IIS MANAGER 
+9. Expand the content of the IIS Server, expand the SITE ELEMENT and select the DEFAULT WEB SITE
+10.Right Click on it and navigate to MANAGE WEBSITE and click on browse
+11. At this stage a default browser will be opened with the default of the iis
+12.Right Click again at the DEFAULT BROWSER, navigate to the EXPLORE and open the IIS with the blue icon on a note pad.13.
+13. Once it is opened, delete the STYLE ELEMENT, DIV ELEMENT.
+14.Write whatever you like in the BODY ELEMENT and save and reload the browser.
+15. Repeat STEP 5 TO STEP 14 in the second instance which you are connected to.
+16.Go back to your instance and copy the PUBLICDNS and paste in the browser, you should see what you saved in the BODY ELEMENT displayed on your screen
+17. Repeat same step for the second instance.
+18.On the NAVIGATION PANE, click on LOAB BALANCER, and create a new one, use the security group that was created along your EC2 instance.
+19.At the HEATH CHECK STAGE, remove the text path in the PING PATH and leave the /
+20.Reduce the HEALTHY THRESHOLD to the number of instances created
+21.select the 2 EC2 instances created and create the LOAD BALANCER
+22. Once the LOAD BALANCER is created, click on it and click on the instances, at the TAB below and check to see the instance you created, wait status changes to INSERVICE.
+23. Access the LoadBalancer by the copying the DNS NAME on the browser.
