@@ -1,0 +1,37 @@
+Step by Step installation of RStudio and RShiny Server on AWS Linux2 Machine
+Step 1 VPC Setup:
+Creation of the VPC using the wizard and the public subnet is good for this task.
+Step 2: Create your RStudio Server host
+Create a public instance using your created VPC in step 1 and Public Subnet created and configure the SECURITY GROUP to use the following configurations:
+-	SSH from everywhere (or from your own IP address)
+-	Custom TCP Rule from everywhere with the port range 8787 (Rstudio Port)
+-	Custom TCP Rule from everywhere with the port range 3838 (Rshiny Port)
+
+Step3:  Install RStudio and Rshiny
+I strongly recommend you do the installation using the system administrator(root)
+Install R using the following command:
+Sudo amazon-linux-extras install R3.4
+then chose ‘y’ to continue installation
+Step 4: Install RStudio
+Install RStudio Server
+wget https://download3.rstudio.org/centos5.9/x86_64/shiny-server-1.5.4.869-rh5-x86_64.rpm
+yum install -y --nogpgcheck shiny-server-1.5.4.869-rh5-x86_64.rpm
+Step 5: Install RShiny
+#install shiny and shiny-server (2017-08-25)
+wget https://download3.rstudio.org/centos5.9/x86_64/shiny-server-1.5.4.869-rh5-x86_64.rpm
+yum install -y --nogpgcheck shiny-server-1.5.4.869-rh5-x86_64.rpm
+rm shiny-server-1.5.4.869-rh5-x86_64.rpm
+
+you can verify your installation with this command
+sudo rstudio-server verify-installation
+Add a username with the following command 
+ Sudo useradd username
+ Sudo username: password | chpasswd 
+Copy the Public DNS of your instance and paste on the browser :8787 for Rstudio
+Copy the Public DNS of your instance and paste on the browser :3838 for Rshiny
+
+
+
+
+
+
