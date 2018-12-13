@@ -1,0 +1,16 @@
+
+
+Create a VPC with Public Subnet 
+Create another public subnet pointing to the VPC created but in a different Availability Zone from step (1). 
+   NB: Both Public Subnets must point to an IGW.
+Create a subnet group and add both subnets to the it.
+Create the database instance by selecting MySQL.
+Do all configurations and make sure it’s made accessible to the public 
+During the configuration make sure you note your master user name and password.
+Launch the instance.
+Under the vpc check if the Network ACL has the custom(TCP)
+Once the Database is available, you can create the snapshot manually and do not forget to choose the Database instance created previously.
+Create the replica of the Primary Database, by clicking on the Instance Actions at the top of the console
+You can delete the first database created since your replica is well configured.
+Connect the Database instance by using the workbench of MySQL and use the Endpoint in your configured instance to log on the instance 
+
