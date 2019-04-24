@@ -22,3 +22,4 @@ STEP BY STEP TO CREATE ELASTIC LOAB BALANCER
 21.select the 2 EC2 instances created and create the LOAD BALANCER
 22. Once the LOAD BALANCER is created, click on it and click on the instances, at the TAB below and check to see the instance you created, wait status changes to INSERVICE.
 23. Access the LoadBalancer by the copying the DNS NAME on the browser.
+24.BLAAA
